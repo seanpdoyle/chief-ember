@@ -4,16 +4,20 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
   sassOptions: {
+    sourceMap: false,
     includePaths: [
-      "bower_components/bourbon/dist",
-      "bower_components/neat/app/assets/stylesheets"
+      'bower_components/bourbon/dist',
+      'bower_components/neat/app/assets/stylesheets'
     ]
   }
 });
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
-//
+
+app.import('bower_components/jsjpegmeta/jpegmeta.js');
+app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
+
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
 // object's keys should be the environment name and the values
