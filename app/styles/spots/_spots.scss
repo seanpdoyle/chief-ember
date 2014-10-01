@@ -1,0 +1,28 @@
+.orientation-6 {
+  @include transform(rotate(90deg));
+}
+
+.spot-new {
+  $height: 15em;
+
+  input[type=file] {
+    display: none;
+  }
+
+  #map {
+    @include size(auto $height * (2/3));
+  }
+
+  aside {
+    @include size($height);
+    display: inline-block;
+    overflow: hidden;
+
+    background: {
+      attachment: fixed;
+      position: 50% 50%;
+      repeat: no-repeat;
+      size: cover;
+    }
+  }
+}

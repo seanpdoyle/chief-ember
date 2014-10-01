@@ -1,7 +1,9 @@
-@import "bourbon";
-@import "base/grid-settings";
-@import "neat";
-@import "base/base";
+@import 'bourbon';
+@import 'base/grid-settings';
+@import 'neat';
+@import 'base/base';
+
+@import 'spots/spots';
 
 html, body {
   margin: 20px;

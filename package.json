@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "ember server",
+    "start": "ember server  --proxy http://localhost:5000",
     "build": "ember build",
     "test": "ember test"
   },
