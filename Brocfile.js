@@ -5,8 +5,8 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var app = new EmberApp({
   sassOptions: {
     includePaths: [
-      'vendor/bourbon/dist',
-      'vendor/neat/app/assets/stylesheets'
+      "bower_components/bourbon/dist",
+      "bower_components/neat/app/assets/stylesheets"
     ]
   }
 });

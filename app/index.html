@@ -9,20 +9,17 @@
 
     {{BASE_TAG}}
 
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/chief.css">
   </head>
   <body>
     <script>
-      window.ChiefENV = {{ENV}};
-      window.EmberENV = window.ChiefENV.EmberENV;
+      window.EmberENV = {{EMBER_ENV}};
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/chief.js"></script>
     <script>
-      window.Chief = require('chief/app')['default'].create(ChiefENV.APP);
+      window.Chief = require('chief/app')['default'].create({{APP_CONFIG}});
     </script>
   </body>
 </html>

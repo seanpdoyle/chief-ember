@@ -1,10 +1,12 @@
 import Ember from 'ember';
+import config from './config/environment';
 
 var Router = Ember.Router.extend({
-  location: ChiefENV.locationType
+  location: config.locationType
 });
 
 Router.map(function() {
+  this.resource('spots', { path: '/' });
 });
 
 export default Router;
