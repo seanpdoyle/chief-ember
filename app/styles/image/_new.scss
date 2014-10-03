@@ -2,15 +2,11 @@
   @include transform(rotate(90deg));
 }
 
-.spot-new {
+.image-new {
   $height: 15em;
 
   input[type=file] {
     display: none;
-  }
-
-  #map {
-    @include size(auto $height * (2/3));
   }
 
   aside {

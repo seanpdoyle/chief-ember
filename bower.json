@@ -14,6 +14,9 @@
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
     "neat": "~> 1.5.1",
-    "bourbon": "~> 3.2.0"
+    "bourbon": "~> 3.2.0",
+    "jsjpegmeta": "~1.0.1",
+    "ember-uploader": "~0.2.8",
+    "ember-validations": "~1.0.0"
   }
 }

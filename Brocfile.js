@@ -16,7 +16,7 @@ var app = new EmberApp({
 // output files.
 
 app.import('bower_components/jsjpegmeta/jpegmeta.js');
-app.import('bower_components/ember-leaflet/dist/ember-leaflet.js');
+app.import('bower_components/ember-uploader/dist/ember-uploader.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
