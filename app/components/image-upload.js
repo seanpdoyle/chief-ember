@@ -6,17 +6,25 @@ export default Ember.FileField.extend({
 
   uploader: function() {
     var model = this.get('model');
+    var component = this;
     var uploader = Ember.Uploader.create({
       url: '/images',
       paramNamespace: 'image'
     });
 
     uploader.on('progress', function(event) {
-      model.set('progress', event.progress);
+      model.set('progress', event.percent);
     });
 
     uploader.on('didUpload', function(event) {
-      model.set('url', event.url);
+      var image = event.image;
+
+      model.set('id', image.id);
+      model.set('original', image.original);
+      model.set('large', image.large);
+      model.set('thumbnail', image.thumbnail);
+
+      component.sendAction('action', model);
     });
 
     return uploader;

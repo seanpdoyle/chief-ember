@@ -17,20 +17,19 @@ module('Integration - Nearby Feed', {
   }
 });
 
-test("Nearby feed has Nearby spots", function() {
+test('Images display all Images as thumbnails', function() {
   server = new Pretender(function() {
-    this.get('/spots', function(req) {
+    this.get('/images', function(req) {
       var json = {
-        spots: [{ id: 1, name: 'This is Nearby', image: 'image.jpg' }]
+        images: [{ id: 1, thumbnail: 'image.jpg' }]
       };
       return [200, {'Content-Type': 'application/json'}, JSON.stringify(json)];
     });
   });
 
-  visit('/');
+  visit('/images');
 
   andThen(function() {
-    equal('This is Nearby', find('[data-role=name]').text());
-    equal('image.jpg', find('[data-role=image]').attr('src'));
+    equal(find('[data-role=thumbnail]').attr('src'), 'image.jpg');
   });
 });
