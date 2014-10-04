@@ -15,6 +15,7 @@ var app = new EmberApp({
 // Use `app.import` to add additional libraries to the generated
 // output files.
 
+app.import('bower_components/ember-cloaking/ember-cloaking.js');
 app.import('bower_components/jsjpegmeta/jpegmeta.js');
 app.import('bower_components/ember-uploader/dist/ember-uploader.js');
 

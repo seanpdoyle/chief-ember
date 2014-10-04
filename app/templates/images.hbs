@@ -1,8 +1,12 @@
-<h1>Images</h1>
+<h1>With Location</h1>
 
-{{#each}}
-  <img data-role="thumbnail" {{bind-attr src=thumbnail}}>
-  <address>
-    {{latitude}}, {{longitude}}
-  </address>
+{{#each withLocation}}
+  {{render "image-item" this}}
+  {{#link-to 'image.share' id}}Create Spot{{/link-to}}
+{{/each}}
+
+<h1>Without Location</h1>
+
+{{#each withoutLocation}}
+  {{render "image-item" this}}
 {{/each}}

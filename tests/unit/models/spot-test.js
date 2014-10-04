@@ -5,7 +5,7 @@ import {
 
 moduleForModel('spot', 'Spot', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:image']
 });
 
 test('it exists', function() {

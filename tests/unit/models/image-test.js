@@ -5,7 +5,7 @@ import {
 
 moduleForModel('image', 'Image', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:spot']
 });
 
 test('it uses the original as the URL when nothing else is present', function() {
@@ -29,8 +29,16 @@ test('it has a location', function() {
   equal(longitude, 15);
 });
 
-test('it exists', function() {
+test('it hasLocation when it has a location', function() {
+  var model = this.subject({ latitude: 10, longitude: 15 });
+
+  ok(model.get('hasLocation'));
+  ok(!model.get('missingLocation'));
+});
+
+test('it is missingLocation when it is missing a location', function() {
   var model = this.subject();
-  // var store = this.store();
-  ok(!!model);
+
+  ok(!model.get('hasLocation'));
+  ok(model.get('missingLocation'));
 });

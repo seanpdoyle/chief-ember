@@ -2,8 +2,7 @@
   <ul>
     {{#each}}
       <li class="spot">
-        <h1 data-role="name">{{name}}</h1>
-        <img data-role="image" {{bind-attr alt=name src=image}}>
+        {{render "spot" this}}
       </li>
     {{/each}}
   </ul>

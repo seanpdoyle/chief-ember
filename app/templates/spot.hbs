@@ -1,0 +1,7 @@
+<h1 data-role="name">{{name}}</h1>
+
+<ul>
+  {{#each images}}
+    <img data-role="image" {{bind-attr alt=name src=url}}>
+  {{/each}}
+</ul>

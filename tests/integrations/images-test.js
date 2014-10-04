@@ -5,7 +5,7 @@ import Pretender from 'pretender';
 var App,
     server;
 
-module('Integration - Nearby Feed', {
+module('Integration - Unused Images', {
   setup: function() {
     App = startApp();
   },

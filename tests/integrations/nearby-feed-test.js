@@ -21,7 +21,8 @@ test("Nearby feed has Nearby spots", function() {
   server = new Pretender(function() {
     this.get('/spots', function(req) {
       var json = {
-        spots: [{ id: 1, name: 'This is Nearby', image: 'image.jpg' }]
+        spots: [{ id: 1, name: 'This is Nearby', image_ids: [1] }],
+        images: [{ id: 1, original: 'image.jpg' }]
       };
       return [200, {'Content-Type': 'application/json'}, JSON.stringify(json)];
     });

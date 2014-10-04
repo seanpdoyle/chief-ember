@@ -17,6 +17,7 @@
     "bourbon": "~> 3.2.0",
     "jsjpegmeta": "~1.0.1",
     "ember-uploader": "~0.2.8",
-    "ember-validations": "~1.0.0"
+    "ember-validations": "~1.0.0",
+    "ember-cloaking": "~1.0.0-beta4"
   }
 }
