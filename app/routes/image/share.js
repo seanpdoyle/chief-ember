@@ -7,5 +7,9 @@ export default Ember.Route.extend({
       spot.get('images').pushObject(image);
     });
     return spot;
+  },
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    controller.set('image', model.get('images.firstObject'));
   }
 });
