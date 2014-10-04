@@ -7,11 +7,11 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('spots', { path: '/' });
+  this.route('spot.new', { path: '/spot/new' });
   this.resource('spot', { path: '/spot/:id' });
   this.resource('images');
   this.route('image', function() {
     this.route('new');
-    this.route('share', { path: '/:id/share' });
   });
 });
 

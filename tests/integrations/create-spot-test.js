@@ -19,14 +19,9 @@ module('Integration - Create Spot', {
 
 test('Create a Spot from an Image', function() {
   server = new Pretender(function() {
-    this.get('/images/1', function(req) {
+    this.get('/images', function(req) {
       var json = {
-        image: {
-          id: 1,
-          original: 'image.jpg',
-          latitude: 5,
-          longitude: 10
-        }
+        images: [{ id: 1, original: 'image.jpg' }]
       };
       return [200, {'Content-Type': 'application/json'}, JSON.stringify(json)];
     });
@@ -39,7 +34,8 @@ test('Create a Spot from an Image', function() {
     });
   });
 
-  visit('/image/1/share');
+  visit('/spot/new');
+  click('[data-image=1]');
   fillIn('input.name', 'New Spot');
   click('button.submit');
 

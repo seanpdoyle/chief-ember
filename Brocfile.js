@@ -18,6 +18,7 @@ var app = new EmberApp({
 app.import('bower_components/ember-cloaking/ember-cloaking.js');
 app.import('bower_components/jsjpegmeta/jpegmeta.js');
 app.import('bower_components/ember-uploader/dist/ember-uploader.js');
+app.import('bower_components/ember-multiselect.js/ember-multiselect.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

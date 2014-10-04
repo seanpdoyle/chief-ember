@@ -18,6 +18,7 @@
     "jsjpegmeta": "~1.0.1",
     "ember-uploader": "~0.2.8",
     "ember-validations": "~1.0.0",
-    "ember-cloaking": "~1.0.0-beta4"
+    "ember-cloaking": "~1.0.0-beta4",
+    "ember-multiselect.js": "~0.2.1"
   }
 }

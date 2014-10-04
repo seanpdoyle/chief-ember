@@ -6,8 +6,8 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    imageUploaded: function(image) {
-      this.transitionTo('image.share', image.id);
+    imageUploaded: function() {
+      this.transitionTo('spot.new');
     }
   }
 });
