@@ -3,17 +3,19 @@ import Ember from "ember";
 
 export default Ember.FileField.extend({
   model: Ember.Object.create({}),
+  style: 'width: 0%',
 
   uploader: function() {
-    var model = this.get('model');
     var component = this;
+    var model = this.get('model');
     var uploader = Ember.Uploader.create({
       url: '/images',
       paramNamespace: 'image'
     });
 
     uploader.on('progress', function(event) {
-      model.set('progress', event.percent);
+      component.set('width', 'width: ' + event.percent + '%');
+      model.set('style', event.percent);
     });
 
     uploader.on('didUpload', function(event) {
@@ -57,7 +59,7 @@ export default Ember.FileField.extend({
     var reader = new FileReader();
 
     reader.onloadend = function() {
-      model.set('url', this.result);
+      model.set('thumbnail', this.result);
     };
 
     if (file) {
@@ -67,7 +69,11 @@ export default Ember.FileField.extend({
 
   actions: {
     upload: function() {
-      this.get('uploader').upload(this.get('files')[0]);
+      var files = this.get('files');
+
+      if (!Ember.empty(files)) {
+        this.get('uploader').upload(files[0]);
+      }
     }
   }
 });

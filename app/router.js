@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('image', function() {
     this.route('new');
   });
+  this.route('catchall', { path: '/*wildcard' });
 });
 
 export default Router;

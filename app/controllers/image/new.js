@@ -6,10 +6,10 @@ export default Ember.ObjectController.extend({
   }.property('model.orientation'),
 
   style: function() {
-    if (!Ember.isEmpty(this.get('url'))) {
-      return 'background-image: url("' + this.get('url') + '");';
+    if (!Ember.isEmpty(this.get('thumbnail'))) {
+      return 'background-image: url("' + this.get('thumbnail') + '");';
     } else {
       return 'background-color: white;';
     }
-  }.property('url')
+  }.property('thumbnail')
 });

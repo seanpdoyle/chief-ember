@@ -2,15 +2,24 @@
   {{#each images}}
     <li {{bind-attr class="checked:active"}}>
       <label data-image="{{unbound id}}">
-        <img {{bind-attr src=thumbnail alt=thumbnail}}>
+        <img {{bind-attr src=thumbnailOrOriginal alt=thumbnailOrOriginal}}>
         {{input type="checkbox" checked=checked}}
       </label>
     </li>
+  {{else}}
+    <p>You don't have any new images yet.</p>
+    {{#link-to 'image.new'}}Click here to add one{{/link-to}}
   {{/each}}
 </ul>
+{{#each spot.errors.images}}
+  <div class="error">{{message}}</div>
+{{/each}}
 
 {{#with spot}}
   {{input class="name" value=name type="text" placeholder="Name the spot..."}}
+  {{#each errors.name}}
+    <div class="error">{{message}}</div>
+  {{/each}}
 
   <button class="submit" {{action "save"}}>Create!</button>
 {{/with}}

@@ -8,16 +8,16 @@ moduleForModel('image', 'Image', {
   needs: ['model:spot']
 });
 
-test('it uses the original as the URL when nothing else is present', function() {
+test('it uses the original as the large when nothing else is present', function() {
   var model = this.subject({ original: 'original.jpg' });
 
-  equal(model.get('url'), 'original.jpg');
+  equal(model.get('largeOrOriginal'), 'original.jpg');
 });
 
-test('it uses the large as the URL when it is present', function() {
-  var model = this.subject({ original: 'original.jpg', large: 'large.jpg' });
+test('it uses the original as the thumbnail when it is missing', function() {
+  var model = this.subject({ original: 'original.jpg' });
 
-  equal(model.get('url'), 'large.jpg');
+  equal(model.get('thumbnailOrOriginal'), 'original.jpg');
 });
 
 test('it has a location', function() {

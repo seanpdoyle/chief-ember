@@ -7,7 +7,11 @@ export default DS.Model.extend(Locatable, {
   large: DS.attr('string'),
   thumbnail: DS.attr('string'),
 
-  url: function() {
+  thumbnailOrOriginal: function() {
+    return this.get('thumbnail') || this.get('original');
+  }.property('thumbnail', 'original'),
+
+  largeOrOriginal: function() {
     return this.get('large') || this.get('original');
-  }.property('original', 'large')
+  }.property('large', 'original')
 });
