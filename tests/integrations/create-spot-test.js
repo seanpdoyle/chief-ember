@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import startApp from 'chief/tests/helpers/start-app';
-import stubGeolocation from 'chief/tests/helpers/stub-geolocation';
 import Pretender from 'pretender';
 
 var App,
@@ -9,7 +8,6 @@ var App,
 module('Integration - Create Spot', {
   setup: function() {
     App = startApp();
-    stubGeolocation({latitude: 0, longitude: 0});
   },
   teardown: function() {
     Ember.run(App, 'destroy');

@@ -1,19 +1,12 @@
 import Ember from 'ember';
+import stubLastLocation from 'chief/tests/helpers/stub-last-location';
 /* global navigator */
-/* global localStorage */
 
-export default function() {
-  Ember.Test.registerHelper('stubLastLocation', function(location) {
-    localStorage.setItem('lastLocation', JSON.stringify(location));
-  });
-
-  Ember.Test.registerHelper('stubGeolocation', function(location) {
-    navigator.geolocation.getCurrentPosition = function(success) {
-      success({
-        position: {
-          coords: location
-        }
-      });
-    };
-  });
+export default function(location) {
+  stubLastLocation(location);
+  navigator.geolocation.getCurrentPosition = function(success, failure) {
+    if (location) {
+      success({ coords: location });
+    }
+  };
 }

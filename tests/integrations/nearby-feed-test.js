@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import startApp from 'chief/tests/helpers/start-app';
-import Pretender from 'pretender';
+import stubLocation from 'chief/tests/helpers/stub-geolocation';
+import stubApi from 'chief/tests/helpers/stub-api';
 
 var App,
     server;
@@ -17,15 +18,17 @@ module('Integration - Nearby Feed', {
   }
 });
 
-test("Nearby feed has Nearby spots", function() {
-  server = new Pretender(function() {
-    this.get('/spots', function(req) {
-      var json = {
+test('Nearby feed has Nearby spots', function() {
+  stubLocation({latitude: 12, longitude: 34});
+  server = stubApi('get', '/spots', function(req) {
+    var params = req.queryParams;
+
+    if (params.latitude === "12" && params.longitude === "34") {
+      return {
         spots: [{ id: 1, name: 'This is Nearby', image_ids: [1] }],
         images: [{ id: 1, original: 'image.jpg' }]
       };
-      return [200, {'Content-Type': 'application/json'}, JSON.stringify(json)];
-    });
+    }
   });
 
   visit('/');
