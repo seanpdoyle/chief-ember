@@ -3,6 +3,7 @@ import Locatable from 'chief/mixins/locatable';
 
 export default DS.Model.extend(Locatable, {
   spot: DS.belongsTo('spot'),
+  file: DS.attr('string'),
   original: DS.attr('string'),
   large: DS.attr('string'),
   thumbnail: DS.attr('string'),

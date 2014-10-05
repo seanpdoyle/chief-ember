@@ -1,6 +1,8 @@
 import Ember from "ember";
 import config from '../config/environment';
 /* global JpegMeta */
+/* global $ */
+/* global unescape */
 
 export default Ember.FileField.extend({
   model: Ember.Object.create({}),
@@ -9,9 +11,8 @@ export default Ember.FileField.extend({
   uploader: function() {
     var component = this;
     var model = this.get('model');
-    var uploader = Ember.Uploader.create({
-      url: config.APP.API_HOST + '/images',
-      paramNamespace: 'image'
+    var uploader = Ember.S3Uploader.create({
+      url: config.APP.API_HOST + '/sign'
     });
 
     uploader.on('progress', function(event) {
@@ -20,14 +21,12 @@ export default Ember.FileField.extend({
     });
 
     uploader.on('didUpload', function(event) {
-      var image = event.image;
+      var uploadedUrl = unescape($(event).find('Location')[0].textContent);
 
-      model.set('id', image.id);
-      model.set('original', image.original);
-      model.set('large', image.large);
-      model.set('thumbnail', image.thumbnail);
-
-      component.sendAction('action', model);
+      model.set('file', uploadedUrl);
+      model.save().then(function(model) {
+        component.sendAction('action', model);
+      });
     });
 
     return uploader;
