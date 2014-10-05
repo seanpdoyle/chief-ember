@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
+  distance: DS.attr('number'),
 
   hasLocation: Ember.computed.not('missingLocation'),
 
