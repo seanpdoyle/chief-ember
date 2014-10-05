@@ -7,19 +7,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <base href="/chief-ember/">
+    <base href="/">
 
     <link rel="stylesheet" href="assets/vendor-d41d8cd98f00b204e9800998ecf8427e.css">
     <link rel="stylesheet" href="assets/chief-f3ddeb2385c77298bf37e2cfa9a3733b.css">
   </head>
   <body>
     <script>
-      window.EmberENV = {"modulePrefix":"chief","environment":"production","baseURL":"/chief-ember","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
+      window.EmberENV = {"modulePrefix":"chief","environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{"API_HOST":"http://api.wheelbytes.com"}};
     </script>
     <script src="assets/vendor-2be898f815159e757dc09bab101430af.js"></script>
-    <script src="assets/chief-dce409ec56a6fb81abd99e9958376019.js"></script>
+    <script src="assets/chief-27ea5466288c6ee50eed4d5a2c84069e.js"></script>
     <script>
-      window.Chief = require('chief/app')['default'].create({});
+      window.Chief = require('chief/app')['default'].create({"API_HOST":"http://api.wheelbytes.com"});
     </script>
   </body>
 </html>
