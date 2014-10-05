@@ -1,6 +1,6 @@
 import DS from 'ember-data';
-/* global EmberENV */
+import config from '../config/environment';
 
 export default DS.ActiveModelAdapter.extend({
-  host: EmberENV.APP.API_HOST
+  host: config.APP.API_HOST
 });

@@ -22,9 +22,13 @@ export default {
       },
 
       lastLocation: function() {
-        var location = localStorage.getItem('lastLocation') || '{}';
-
-        return JSON.parse(location);
+        var location;
+        try {
+          location = JSON.parse(localStorage.getItem('lastLocation'));
+        } catch(_) {
+          location = {};
+        }
+        return location;
       }.property()
     });
   }
