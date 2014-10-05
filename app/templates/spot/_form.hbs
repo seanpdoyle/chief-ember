@@ -1,0 +1,26 @@
+{{#with spot}}
+  {{input class="name" value=name type="text" placeholder="Name the spot..."}}
+  {{#each errors.name}}
+    <div class="error">{{message}}</div>
+  {{/each}}
+
+  <button class="submit" {{action "save"}}>Create!</button>
+{{/with}}
+
+{{#link-to 'image.new'}}Click here to add an image{{/link-to}}
+
+<ul class="image-picker">
+  {{#each images}}
+    <li {{bind-attr class="checked:active"}}>
+      <label data-image="{{unbound id}}">
+        <img {{bind-attr src=thumbnailOrOriginal alt=thumbnailOrOriginal}}>
+        {{input type="checkbox" checked=checked}}
+      </label>
+      <button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>X</button>
+    </li>
+  {{/each}}
+</ul>
+
+{{#each spot.errors.images}}
+  <div class="error">{{message}}</div>
+{{/each}}

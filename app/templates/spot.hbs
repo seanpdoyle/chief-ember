@@ -1,5 +1,7 @@
 <h1 data-role="name">{{name}}</h1>
 
+{{#link-to 'spot.edit' this class="edit"}}Edit{{/link-to}}
+
 {{#if distance}}
 <address>{{toFixed distance 1}} miles away </address>
 {{/if}}
