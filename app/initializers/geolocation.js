@@ -14,8 +14,10 @@ export default {
           };
           localStorage.setItem('lastLocation', JSON.stringify(location));
 
-          controller.set('latitude', location.latitude);
-          controller.set('longitude', location.longitude);
+          Ember.run(function() {
+            controller.set('latitude', location.latitude);
+            controller.set('longitude', location.longitude);
+          });
         });
       },
 
