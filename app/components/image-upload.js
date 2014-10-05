@@ -1,4 +1,5 @@
 import Ember from "ember";
+import config from '../config/environment';
 /* global JpegMeta */
 
 export default Ember.FileField.extend({
@@ -9,7 +10,7 @@ export default Ember.FileField.extend({
     var component = this;
     var model = this.get('model');
     var uploader = Ember.Uploader.create({
-      url: '/images',
+      url: config.APP.API_HOST + '/images',
       paramNamespace: 'image'
     });
 
