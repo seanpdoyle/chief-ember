@@ -16,6 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_HOST: ''
     }
   };
 
@@ -40,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/chief-ember';
+    ENV.APP.API_HOST = 'http://api.wheelbytes.com';
   }
 
   return ENV;
