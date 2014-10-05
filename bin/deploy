@@ -15,6 +15,9 @@ mv dist/* ./
 mv dist/.* ./
 rmdir dist
 
+# Setup CNAME for GitHub Pages DNS
+echo www.wheelbytes.com > CNAME
+
 # Add everything and push it.
 git add -A
 git commit -am "Update."

@@ -15,6 +15,9 @@ export default Ember.ObjectController.extend({
     save: function() {
       var spot = this.get('spot');
       this.transitionToRoute('spot', spot.save());
+    },
+    destroyImage: function(image) {
+      image.destroyRecord();
     }
   }
 });

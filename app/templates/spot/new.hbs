@@ -16,6 +16,7 @@
         <img {{bind-attr src=thumbnailOrOriginal alt=thumbnailOrOriginal}}>
         {{input type="checkbox" checked=checked}}
       </label>
+      <button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>X</button>
     </li>
   {{/each}}
 </ul>
