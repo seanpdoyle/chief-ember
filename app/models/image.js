@@ -14,5 +14,13 @@ export default DS.Model.extend(Locatable, {
 
   largeOrOriginal: function() {
     return this.get('large') || this.get('original');
-  }.property('large', 'original')
+  }.property('large', 'original'),
+
+  progress: 0,
+  barWidth: function() {
+    var progress = this.get('progress');
+
+    return 'width: ' + progress + '%;';
+  }.property('progress')
+
 });

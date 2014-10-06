@@ -5,9 +5,6 @@ import config from '../config/environment';
 /* global unescape */
 
 export default Ember.FileField.extend({
-  model: Ember.Object.create({}),
-  style: 'width: 0%',
-
   uploader: function() {
     var component = this;
     var model = this.get('model');
@@ -16,8 +13,7 @@ export default Ember.FileField.extend({
     });
 
     uploader.on('progress', function(event) {
-      component.set('width', 'width: ' + event.percent + '%');
-      model.set('style', event.percent);
+      model.set('progress', event.percent);
     });
 
     uploader.on('didUpload', function(event) {
@@ -59,7 +55,7 @@ export default Ember.FileField.extend({
     var reader = new FileReader();
 
     reader.onloadend = function() {
-      model.set('thumbnail', this.result);
+      model.set('original', this.result);
     };
 
     if (file) {

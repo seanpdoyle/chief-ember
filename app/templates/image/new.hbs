@@ -1,6 +1,12 @@
 <section class="image-new">
   <label>
-    <aside {{bind-attr class=orientation style=style}}></aside>
+    <aside>
+      <img {{bind-attr src=original}} alt="spot">
+    </aside>
+
+    <div class="progress-bar">
+      <span class="meter" {{bind-attr style=barWidth}}></span>
+    </div>
 
     {{image-upload model=model action="imageUploaded"}}
   </label>
