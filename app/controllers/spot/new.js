@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
+  images: Ember.computed.filter('availableImages', function(image) {
+    var spot = this.get('spot');
+    var owner = image.get('spot');
+
+    return Ember.isEmpty(owner) || Ember.isEqual(owner, spot);
+  }),
   checkedImages: Ember.computed.filterBy('images', 'checked', true),
 
   attachImages: function() {
