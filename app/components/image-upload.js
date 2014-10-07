@@ -1,4 +1,4 @@
-import Ember from "ember";
+import Ember from 'ember';
 import config from '../config/environment';
 /* global JpegMeta */
 /* global $ */
@@ -27,6 +27,14 @@ export default Ember.FileField.extend({
 
     return uploader;
   }.property(),
+
+  uploadFile: function() {
+    var files = this.get('files');
+
+    if (!Ember.empty(files)) {
+      this.get('uploader').upload(files[0]);
+    }
+  }.observes('files'),
 
   readMetadata: function() {
     var file = this.get('files')[0];
@@ -62,14 +70,4 @@ export default Ember.FileField.extend({
       reader.readAsDataURL(file);
     }
   }.observes('files', 'model'),
-
-  actions: {
-    upload: function() {
-      var files = this.get('files');
-
-      if (!Ember.empty(files)) {
-        this.get('uploader').upload(files[0]);
-      }
-    }
-  }
 });

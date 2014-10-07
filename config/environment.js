@@ -6,6 +6,14 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'hash',
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'",
+      'img-src': [
+        "'self'",
+        'chief-rails-sandbox.s3.amazonaws.com',
+        'chief-rails.s3.amazonaws.com'
+      ].join(' ')
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -26,7 +34,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.API_HOST = 'http://localhost:5000';
   }
 
   if (environment === 'test') {
