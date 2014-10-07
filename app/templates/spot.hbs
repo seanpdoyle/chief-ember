@@ -1,7 +1,9 @@
-<h1 data-role="name">{{name}}</h1>
+{{#link-to 'spot' this}}
+  <h1 data-role="name">{{name}}</h1>
+{{/link-to}}
 
 {{#if distance}}
-<address>{{toFixed distance 1}} miles away </address>
+<address>{{toFixed distance 1}} miles away</address>
 {{/if}}
 
 <ul>
