@@ -1,4 +1,6 @@
 import Ember from 'ember';
+/* global geoPosition */
+
 
 export default {
   name: 'geolocation',
@@ -6,8 +8,9 @@ export default {
     Ember.Route.reopen({
       setupController: function(controller, model) {
         this._super(controller, model);
+        if (!geoPosition.init()) { return; }
 
-        navigator.geolocation.getCurrentPosition(function(position) {
+        geoPosition.getCurrentPosition(function(position) {
           var location = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
@@ -18,7 +21,7 @@ export default {
             controller.set('latitude', location.latitude);
             controller.set('longitude', location.longitude);
           });
-        });
+        }
       },
 
       lastLocation: function() {

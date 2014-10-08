@@ -18,6 +18,7 @@ var app = new EmberApp({
 app.import('bower_components/ember-cloaking/ember-cloaking.js');
 app.import('bower_components/ember-multiselect.js/ember-multiselect.js');
 app.import('bower_components/ember-uploader/dist/ember-uploader.js');
+app.import('bower_components/geoPosition/js/geoPosition.js');
 app.import('bower_components/jsjpegmeta/jpegmeta.js');
 app.import('bower_components/swag/lib/swag.js');
 app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.js');
