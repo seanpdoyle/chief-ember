@@ -28,6 +28,8 @@ test('Nearby feed has Nearby spots', function() {
         spots: [{ id: 1, name: 'This is Nearby', image_ids: [1] }],
         images: [{ id: 1, original: 'image.jpg' }]
       };
+    } else {
+      return { spots: [], images: [] };
     }
   });
 

@@ -30,7 +30,11 @@ test('Create a Spot from an Image', function() {
       var json = JSON.parse(req.requestBody);
       json.spot.id = 1;
 
-      return [201, {'Content-Type': 'application/json'}, JSON.stringify(json)];
+      if (Ember.empty(json.spot.image_ids) || Ember.empty(json.spot.name)) {
+        return [422, {'Content-Type': 'application/json'}, "{}"];
+      } else {
+        return [201, {'Content-Type': 'application/json'}, JSON.stringify(json)];
+      }
     });
   });
 

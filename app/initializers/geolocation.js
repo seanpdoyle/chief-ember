@@ -1,5 +1,5 @@
 import Ember from 'ember';
-/* global geoPosition */
+/* global navigator */
 
 
 export default {
@@ -8,9 +8,8 @@ export default {
     Ember.Route.reopen({
       setupController: function(controller, model) {
         this._super(controller, model);
-        if (!geoPosition.init()) { return; }
 
-        geoPosition.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
           var location = {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude
@@ -21,16 +20,17 @@ export default {
             controller.set('latitude', location.latitude);
             controller.set('longitude', location.longitude);
           });
-        }
+        });
       },
 
       lastLocation: function() {
         var location;
         try {
           location = JSON.parse(localStorage.getItem('lastLocation'));
-        } catch(_) {
+        } catch(e) {
           location = {};
         }
+
         return location;
       }.property()
     });
