@@ -6,8 +6,4 @@
 <address>{{toFixed distance 1}} miles away</address>
 {{/if}}
 
-<ul>
-  {{#each images}}
-    <img data-role="image" {{bind-attr alt=name src=largeOrOriginal}}>
-  {{/each}}
-</ul>
+{{image-slider images=images}}

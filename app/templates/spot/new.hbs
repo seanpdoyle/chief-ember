@@ -4,6 +4,10 @@
     <div class="error">{{message}}</div>
   {{/each}}
 
+  {{#each errors.images}}
+    <div class="error">{{message}}</div>
+  {{/each}}
+
   <button class="submit" {{action "save"}}>Create!</button>
 {{/with}}
 
@@ -20,7 +24,3 @@
     </li>
   {{/each}}
 </ul>
-
-{{#each spot.errors.images}}
-  <div class="error">{{message}}</div>
-{{/each}}

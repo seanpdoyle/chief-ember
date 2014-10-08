@@ -8,3 +8,13 @@ footer {
   text-align: center;
   vertical-align: middle;
 }
+
+nav {
+  display: flex;
+  padding: 0.25rem;
+
+  a {
+    flex: 1;
+    margin: 0.25rem;
+  }
+}

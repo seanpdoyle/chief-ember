@@ -20,6 +20,7 @@
     "ember-validations": "~1.0.0",
     "ember-cloaking": "~1.0.0-beta4",
     "ember-multiselect.js": "~0.2.1",
-    "swag": "~0.7.0"
+    "swag": "~0.7.0",
+    "owl-carousel": "~1.3.2"
   }
 }

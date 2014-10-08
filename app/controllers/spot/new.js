@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
+  init: function() {
+    this.get('checkedImages');
+  },
   images: Ember.computed.filter('availableImages', function(image) {
     var spot = this.get('spot');
     var owner = image.get('spot');
