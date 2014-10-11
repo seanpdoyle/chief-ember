@@ -10,19 +10,7 @@
 
   <ul class="uploads">
   {{#each uploads}}
-    <li {{bind-attr class="saved failed"}}>
-      <img {{bind-attr src=original}} alt="spot">
-
-      <p class="error">{{error}}</p>
-
-      {{#unless saved}}
-        <div class="progress-bar-indication">
-          <span class="meter" {{bind-attr style=barWidth}}>
-            <p>{{toFixed progress 0}}%</p>
-          </span>
-        </div>
-      {{/unless}}
-    </li>
+    {{render "upload" this}}
   {{/each}}
   </ul>
 </section>

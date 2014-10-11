@@ -1,4 +1,5 @@
-<img data-role="thumbnail" {{bind-attr src=thumbnail}}>
-<address>
-  {{latitude}}, {{longitude}}
-</address>
+<label data-image="{{unbound id}}">
+  <img {{bind-attr src=thumbnail alt=thumbnail}}>
+  {{input type="checkbox" checked=checked}}
+</label>
+<button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>X</button>

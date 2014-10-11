@@ -15,12 +15,6 @@
 
 <ul class="image-picker">
   {{#each images}}
-    <li {{bind-attr class="checked:active"}}>
-      <label data-image="{{unbound id}}">
-        <img {{bind-attr src=thumbnail alt=thumbnail}}>
-        {{input type="checkbox" checked=checked}}
-      </label>
-      <button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>X</button>
-    </li>
+    {{render "image-item" this}}
   {{/each}}
 </ul>

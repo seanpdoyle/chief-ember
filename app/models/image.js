@@ -5,11 +5,15 @@ export default DS.Model.extend(Locatable, {
   spot: DS.belongsTo('spot'),
   file: DS.attr('string'),
   original: DS.attr('string'),
-  large: DS.attr('string', function(record) {
-    return record.get('original');
+  large: DS.attr('string', {
+    defaultValue: function(record) {
+      return record.get('original');
+    }
   }),
-  thumbnail: DS.attr('string', function(record) {
-    return record.get('original');
+  thumbnail: DS.attr('string', {
+    defaultValue: function(record) {
+      return record.get('original');
+    }
   }),
 
   progress: 0,
