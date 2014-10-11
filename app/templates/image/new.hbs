@@ -1,18 +1,29 @@
 <section class="image-new">
+  {{#if images.length}}
+    <h1>{{images.length}} created!</h1>
+  {{/if}}
+
   <label>
     <aside>
       <img {{bind-attr src=original}} alt="spot">
     </aside>
 
-    <div class="progress-bar">
-      <span class="meter" {{bind-attr style=barWidth}}></span>
-    </div>
-
-    {{image-upload model=model action="imageUploaded"}}
+    {{image-upload uploads=uploads action="imageUploaded"}}
   </label>
 
-  <address>
-    Latitude: {{location.latitude}}
-    Longitude: {{location.longitude}}
-  </address>
+  <ul class="uploads">
+  {{#each uploads}}
+    <li {{bind-attr class="saved failed"}}>
+      <img {{bind-attr src=original}} alt="spot">
+
+      {{#unless saved}}
+        <div class="progress-bar-indication">
+          <span class="meter" {{bind-attr style=barWidth}}>
+            <p>{{progress}}%</p>
+          </span>
+      {{/unless}}
+      </div>
+    </li>
+  {{/each}}
+  </ul>
 </section>
