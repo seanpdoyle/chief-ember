@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  classNameBindings: ['checked:active', 'missingLocation:missing-location'],
+  classNameBindings: [
+    ':image-item',
+    'checked:active',
+    'missingLocation:missing-location'
+  ],
   tagName: 'li',
   templateName: 'image-item',
 

@@ -1,8 +1,8 @@
 .image-picker {
   li {
-    @include size(100);
+    @include size(140);
     float: left;
-    padding: 5px;
+    margin: 5px;
   }
 
   input[type=checkbox] {
@@ -10,6 +10,6 @@
   }
 
   .active {
-    border: solid 1px green;
+    border: solid 3px green;
   }
 }

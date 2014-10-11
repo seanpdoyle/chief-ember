@@ -2,4 +2,5 @@
   <img {{bind-attr src=thumbnail alt=thumbnail}}>
   {{input type="checkbox" checked=checked}}
 </label>
-<button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>X</button>
+
+<button data-destroy-image="{{unbound id}}" {{action "destroyImage" this}}>DELETE</button>
