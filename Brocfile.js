@@ -14,14 +14,14 @@ var app = new EmberApp({
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
-
+app.import('bower_components/async/lib/async.js');
 app.import('bower_components/ember-cloaking/ember-cloaking.js');
 app.import('bower_components/ember-multiselect.js/ember-multiselect.js');
 app.import('bower_components/ember-uploader/dist/ember-uploader.js');
 app.import('bower_components/jsjpegmeta/jpegmeta.js');
-app.import('bower_components/swag/lib/swag.js');
-app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.js');
 app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.css');
+app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.js');
+app.import('bower_components/swag/lib/swag.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
