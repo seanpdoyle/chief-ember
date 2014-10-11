@@ -11,13 +11,13 @@ moduleForModel('image', 'Image', {
 test('it uses the original as the large when nothing else is present', function() {
   var model = this.subject({ original: 'original.jpg' });
 
-  equal(model.get('largeOrOriginal'), 'original.jpg');
+  equal(model.get('large'), 'original.jpg');
 });
 
 test('it uses the original as the thumbnail when it is missing', function() {
   var model = this.subject({ original: 'original.jpg' });
 
-  equal(model.get('thumbnailOrOriginal'), 'original.jpg');
+  equal(model.get('thumbnail'), 'original.jpg');
 });
 
 test('it has a location', function() {

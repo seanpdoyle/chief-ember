@@ -5,16 +5,12 @@ export default DS.Model.extend(Locatable, {
   spot: DS.belongsTo('spot'),
   file: DS.attr('string'),
   original: DS.attr('string'),
-  large: DS.attr('string'),
-  thumbnail: DS.attr('string'),
-
-  thumbnailOrOriginal: function() {
-    return this.get('thumbnail') || this.get('original');
-  }.property('thumbnail', 'original'),
-
-  largeOrOriginal: function() {
-    return this.get('large') || this.get('original');
-  }.property('large', 'original'),
+  large: DS.attr('string', function(record) {
+    return record.get('original');
+  }),
+  thumbnail: DS.attr('string', function(record) {
+    return record.get('original');
+  }),
 
   progress: 0,
   barWidth: function() {
