@@ -10,12 +10,12 @@ export default Ember.ArrayController.extend({
         file: upload.get('url')
       });
 
-      upload.set('image', image);
-
       image.save().then(function() {
+        upload.set('image', image);
         images.pushObject(image);
-      }).catch(function() {
-        image.set('failed', true);
+      }).catch(function(error) {
+        upload.set('failed', true);
+        upload.set('error', error.statusText);
       });
     }
   }

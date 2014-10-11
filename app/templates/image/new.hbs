@@ -4,10 +4,7 @@
   {{/if}}
 
   <label>
-    <aside>
-      <img {{bind-attr src=original}} alt="spot">
-    </aside>
-
+    Pick an image
     {{image-upload uploads=uploads action="imageUploaded"}}
   </label>
 
@@ -16,13 +13,15 @@
     <li {{bind-attr class="saved failed"}}>
       <img {{bind-attr src=original}} alt="spot">
 
+      <p class="error">{{error}}</p>
+
       {{#unless saved}}
         <div class="progress-bar-indication">
           <span class="meter" {{bind-attr style=barWidth}}>
-            <p>{{progress}}%</p>
+            <p>{{toFixed progress 0}}%</p>
           </span>
+        </div>
       {{/unless}}
-      </div>
     </li>
   {{/each}}
   </ul>
