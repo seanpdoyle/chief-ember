@@ -2,9 +2,10 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
+  bearing: DS.attr('string'),
+  distance: DS.attr('number'),
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
-  distance: DS.attr('number'),
 
   hasLocation: Ember.computed.not('missingLocation'),
 
