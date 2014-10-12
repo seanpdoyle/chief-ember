@@ -2,7 +2,8 @@ import DS from 'ember-data';
 
 export default DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
   attrs: {
-    images: { serialize: 'ids' },
-    distance: { serialize: false }
+    bearing: { serialize: false },
+    distance: { serialize: false },
+    images: { serialize: 'ids' }
   }
 });
