@@ -1,14 +1,5 @@
-import Ember from 'ember';
+import DS from 'ember-data';
 
-export default Ember.Object.extend({
-  file: '',
-  progress: 0,
-  original: '',
-  url: '',
-
-  barWidth: function() {
-    return 'width: ' + this.get('progress') + '%;';
-  }.property('progress'),
-
-  saved: Ember.computed.notEmpty('image')
+export default DS.Model.extend({
+  url: DS.attr('string')
 });

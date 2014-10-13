@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import Upload from 'chief/models/upload';
+import UploadStatus from 'chief/models/upload-status';
 import config from '../config/environment';
 /* global $ */
 /* global async */
@@ -9,19 +9,20 @@ export default Ember.FileField.extend({
   concurrency: 3,
   multiple: true,
   uploads: [],
+
   queue: function() {
     var self = this;
-    return async.queue(function(upload, taskCompleted) {
-      var uploader = upload.get('uploader');
-      var file = upload.get('file');
+    return async.queue(function(uploadStatus, taskCompleted) {
+      var uploader = uploadStatus.get('uploader');
+      var file = uploadStatus.get('file');
 
       uploader.on('didUpload', function(event) {
         var locationUrl = $(event).find('Location')[0].textContent;
         var uploadedUrl = unescape(locationUrl);
 
-        upload.set('url', uploadedUrl);
+        uploadStatus.set('url', uploadedUrl);
 
-        self.sendAction('action', upload);
+        self.sendAction('action', uploadStatus);
         taskCompleted();
       });
 
@@ -46,25 +47,25 @@ export default Ember.FileField.extend({
   uploadFile: function(file) {
     var queue = this.get('queue');
     var uploads = this.get('uploads');
-    var upload = Upload.create({ file: file });
+    var uploadStatus = UploadStatus.create({ file: file });
     var uploader = Ember.S3Uploader.create({url: config.APP.API_HOST + '/sign'});
 
     uploader.on('progress', function(event) {
-      upload.set('progress', event.percent);
+      uploadStatus.set('progress', event.percent);
     });
-    upload.set('uploader', uploader);
+    uploadStatus.set('uploader', uploader);
 
-    this.previewImage(upload);
-    uploads.pushObject(upload);
-    queue.push(upload);
+    this.previewImage(uploadStatus);
+    uploads.pushObject(uploadStatus);
+    queue.push(uploadStatus);
   },
 
-  previewImage: function(upload) {
-    var file = upload.get('file');
+  previewImage: function(uploadStatus) {
+    var file = uploadStatus.get('file');
     var reader = new FileReader();
 
     reader.onloadend = function() {
-      upload.set('original', this.result);
+      uploadStatus.set('original', this.result);
     };
 
     reader.readAsDataURL(file);

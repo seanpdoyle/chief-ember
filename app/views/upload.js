@@ -1,10 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  classNameBindings: ['saved', 'failed'],
+  classNameBindings: ['isNew::saved', 'isError:failed'],
   tagName: 'li',
-  templateName: 'upload',
-
-  failed: Ember.computed.alias('controller.failed'),
-  saved: Ember.computed.alias('controller.saved')
+  templateName: 'upload'
 });
