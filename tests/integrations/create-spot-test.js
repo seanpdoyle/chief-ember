@@ -41,7 +41,7 @@ test('Create a Spot from an Image', function() {
   visit('/spot/new');
   click('[data-image=1]');
   fillIn('input.name', 'New Spot');
-  click('button.submit');
+  click('input[type=submit]');
 
   andThen(function() {
     equal(find('[data-role=name]').text(), 'New Spot');

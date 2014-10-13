@@ -14,6 +14,8 @@ export default Ember.ArrayController.extend({
         upload.set('image', image);
         images.pushObject(image);
       }).catch(function(error) {
+        image.deleteRecord();
+        upload.set('image', null);
         upload.set('failed', true);
         upload.set('error', error.statusText);
       });

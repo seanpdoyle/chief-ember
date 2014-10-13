@@ -1,3 +1,5 @@
 <section class="spots">
-  {{cloaked-collection cloakView="spot" content=model}}
+  {{#each}}
+    {{render "spot" this}}
+  {{/each}}
 </section>

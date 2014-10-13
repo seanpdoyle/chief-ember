@@ -4,6 +4,7 @@ export default Ember.ObjectController.extend({
   init: function() {
     this.get('checkedImages');
   },
+
   images: Ember.computed.filter('availableImages', function(image) {
     var spot = this.get('spot');
     var owner = image.get('spot');
@@ -28,9 +29,6 @@ export default Ember.ObjectController.extend({
     save: function() {
       var spot = this.get('spot');
       this.transitionToRoute('spot', spot.save());
-    },
-    destroyImage: function(image) {
-      image.destroyRecord();
     }
   }
 });
