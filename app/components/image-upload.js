@@ -47,13 +47,12 @@ export default Ember.FileField.extend({
   uploadFile: function(file) {
     var queue = this.get('queue');
     var uploads = this.get('uploads');
-    var uploadStatus = UploadStatus.create({ file: file });
     var uploader = Ember.S3Uploader.create({url: config.APP.API_HOST + '/sign'});
+    var uploadStatus = UploadStatus.create({ file: file, uploader: uploader });
 
     uploader.on('progress', function(event) {
       uploadStatus.set('progress', event.percent);
     });
-    uploadStatus.set('uploader', uploader);
 
     this.previewImage(uploadStatus);
     uploads.pushObject(uploadStatus);

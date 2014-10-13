@@ -8,8 +8,9 @@ export default Ember.ArrayController.extend({
       var upload = this.store.createRecord('upload', {
         url: uploadStatus.get('url')
       });
+      uploadStatus.set('upload', upload);
 
-      upload.save()
+      upload.save();
     }
   }
 });

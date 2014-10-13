@@ -19,18 +19,22 @@
   }
 }
 
-.uploads {
+.upload-status {
+  @extend .clearfix;
+
   img {
     max-width: 100px;
     max-height:100px;
   }
 
-  .failed {
-    border: solid 1px red;
+  .image-container {
+    @include size(100);
+    text-align: center;
 
+    float: left;
   }
 
-  .saved {
-    border: solid 1px green;
+  .meta {
+    float: left;
   }
 }

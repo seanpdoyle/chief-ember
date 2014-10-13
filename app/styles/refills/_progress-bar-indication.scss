@@ -4,6 +4,7 @@
   $progress-meter-border-color: $base-accent-color;
   $progress-meter-border: 1px solid darken($progress-meter-border-color, 15%);
   $progress-meter-color: $progress-meter-border-color;
+  $progress-meter-complete-color: #49AE33;
   $progress-background: darken($base-background-color, 5);
   $progress-animation-duration: 0.7s;
   $progress-color: white;
@@ -14,6 +15,16 @@
   border-radius: $base-border-radius;
   margin: 0 auto;
   width: 50%;
+
+  &.complete {
+    > span.meter {
+      background-color: $progress-meter-complete-color;
+    }
+
+    p {
+      opacity: 0;
+    }
+  }
 
   > span.meter {
     @include box-sizing(border-box);
