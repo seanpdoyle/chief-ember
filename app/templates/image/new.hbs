@@ -1,11 +1,7 @@
 <section class="image-new">
-  {{#if images.length}}
-    <h1>{{images.length}} created!</h1>
-  {{/if}}
-
   <label>
-    Pick an image
-    {{image-upload uploads=uploads action="imageUploaded"}}
+    Upload Your Spots
+    {{image-upload uploads=uploads action="imageUploaded" accept="image/*"}}
   </label>
 
   <ul class="uploads">

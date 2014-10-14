@@ -1,5 +1,9 @@
 <form {{action "save" on="submit"}}>
-  <label>Pick one or more images</label>
+  <label>
+    Pick a spot to share
+    {{#link-to 'image.new'}}or add another{{/link-to}}
+  </label>
+
   <ul class="image-picker">
     {{#each images}}
       {{render "image-item" this}}
@@ -10,7 +14,6 @@
     <div class="error">{{message}}</div>
   {{/each}}
 
-  {{#link-to 'image.new'}}or click here to add one{{/link-to}}
 
   {{#with spot}}
     {{input class="name" value=name type="text" placeholder="Name the spot..."}}
