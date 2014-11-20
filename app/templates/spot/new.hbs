@@ -5,8 +5,8 @@
   </label>
 
   <ul class="image-picker">
-    {{#each images}}
-      {{render "image-item" this}}
+    {{#each image in images}}
+      {{image-item content=image selected=selected select="select"}}
     {{/each}}
   </ul>
 

@@ -1,0 +1,4 @@
+<button {{action "select"}} data-image="{{unbound content.id}}">
+<img {{bind-attr src=content.thumbnail alt=content.thumbnail}}>
+
+<button data-destroy-image="{{unbound content.id}}" {{action "destroy"}}>DELETE</button>

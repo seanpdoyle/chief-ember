@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import startApp from 'chief/tests/helpers/start-app';
-import stubLocation from 'chief/tests/helpers/stub-geolocation';
 import stubApi from 'chief/tests/helpers/stub-api';
+/* global geoPosition */
 
 var App,
     server;
+
 
 module('Integration - Nearby Feed', {
   setup: function() {
@@ -19,7 +20,6 @@ module('Integration - Nearby Feed', {
 });
 
 test('Nearby feed has Nearby spots', function() {
-  stubLocation({latitude: 12, longitude: 34});
   server = stubApi('get', '/spots', function(req) {
     var params = req.queryParams;
 
@@ -33,7 +33,7 @@ test('Nearby feed has Nearby spots', function() {
     }
   });
 
-  visit('/');
+  visit('/?latitude=12&longitude=34');
 
   andThen(function() {
     equal('This is Nearby', find('[data-role=name]').text());

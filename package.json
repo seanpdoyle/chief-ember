@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/seanpdoyle/chief-ember",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -22,8 +22,10 @@
     "broccoli-asset-rev": "0.3.0",
     "broccoli-ember-hbs-template-compiler": "^1.6.1",
     "connect-restreamer": "^1.0.0",
-    "ember-cli": "0.1.0",
+    "ember-cli": "0.1.2",
     "ember-cli-content-security-policy": "0.2.0",
+    "ember-cli-esnext": "^0.1.1",
+    "ember-cli-geolocation": "0.0.13",
     "ember-cli-ic-ajax": "0.1.1",
     "ember-cli-inject-live-reload": "^1.2.2",
     "ember-cli-pretender": "~0.2.1",

@@ -28,11 +28,16 @@ test('Create a Spot from an Image', function() {
 
     this.post('/spots', function(req) {
       var json = JSON.parse(req.requestBody);
-      json.spot.id = 1;
+      var spot = json.spot;
 
-      if (Ember.empty(json.spot.image_ids) || Ember.empty(json.spot.name)) {
+      if (Ember.isEmpty(spot.image_ids) || Ember.isEmpty(spot.name)) {
         return [422, {'Content-Type': 'application/json'}, "{}"];
       } else {
+        spot.id = 1;
+        json.images = spot.image_ids.map(function(id) {
+          return { id: id, original: 'image.jpg', spot_id: spot.id };
+        });
+
         return [201, {'Content-Type': 'application/json'}, JSON.stringify(json)];
       }
     });
