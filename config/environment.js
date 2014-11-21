@@ -5,13 +5,13 @@ module.exports = function(environment) {
     modulePrefix: 'chief',
     environment: environment,
     baseURL: '/',
-    locationType: 'hash',
+    locationType: 'history',
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
       'img-src': [
         "'self'",
-        'chief-rails-sandbox.s3.amazonaws.com',
-        'chief-rails.s3.amazonaws.com'
+        'dev-uploads.wheelbytes.com',
+        'uploads.wheelbytes.com'
       ].join(' ')
     },
     EmberENV: {
@@ -49,7 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'http://api.wheelbytes.com';
+    ENV.APP.API_HOST = 'api';
   }
 
   return ENV;
