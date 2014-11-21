@@ -22,6 +22,7 @@ app.import('bower_components/jsjpegmeta/jpegmeta.js');
 app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.css');
 app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.js');
 app.import('bower_components/swag/lib/swag.js');
+app.import('bower_components/geolib/dist/geolib.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

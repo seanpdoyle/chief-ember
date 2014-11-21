@@ -8,7 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('nearby', { path: '/' });
   this.route('spot.new', { path: '/spot/new' });
-  this.resource('spot', { path: '/spot/:id' });
+  this.resource('spot', { path: '/spot/:spot_id' });
   this.route('image', function() {
     this.route('new');
   });

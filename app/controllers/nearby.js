@@ -19,8 +19,7 @@ export default Ember.ArrayController.extend(GeoLocationMixin, {
         longitude: coords.longitude
       };
 
-      localStorage.lastLocation = JSON.stringify(lastLocation);
-
+      self.userLocation.push(lastLocation);
       self.setProperties(lastLocation);
     });
   },

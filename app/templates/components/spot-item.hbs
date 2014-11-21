@@ -1,0 +1,9 @@
+{{#link-to 'spot' content class="name"}}
+  <h1 data-role="name">{{content.name}}</h1>
+{{/link-to}}
+
+{{#if distance}}
+  <address>{{toFixed distance 2}} miles {{bearing}}</address>
+{{/if}}
+
+{{image-slider images=content.images}}

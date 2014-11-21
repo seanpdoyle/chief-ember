@@ -23,6 +23,7 @@
     "owl-carousel": "~1.3.2",
     "qunit": "~1.15.0",
     "swag": "~0.7.0",
-    "geoPosition": "*"
+    "geoPosition": "*",
+    "geolib": "~2.0.9"
   }
 }

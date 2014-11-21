@@ -1,9 +1,8 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+/* global geolib */
 
 export default Ember.Mixin.create({
-  bearing: DS.attr('string'),
-  distance: DS.attr('number'),
   latitude: DS.attr('number'),
   longitude: DS.attr('number'),
 
@@ -17,7 +16,29 @@ export default Ember.Mixin.create({
   }.property('latitude', 'longitude'),
 
   missingLocation: function() {
-    return Ember.empty(this.get('latitude')) ||
-      Ember.empty(this.get('longitude'));
+    var missingLatitude = Ember.empty(this.get('latitude'));
+    var missingLongitude = Ember.empty(this.get('longitude'));
+
+    return missingLatitude || missingLongitude;
   }.property('latitude', 'longitude'),
+
+  bearingFrom: function(locatable) {
+    if (this.get('hasLocation') && locatable.get('hasLocation')) {
+      var otherLocation = locatable.getProperties('latitude', 'longitude');
+      var location = this.getProperties('latitude', 'longitude');
+      var bearing = geolib.getCompassDirection(otherLocation, location);
+
+      return bearing.exact;
+    }
+  },
+
+  distanceTo: function(locatable) {
+    if (this.get('hasLocation') && locatable.get('hasLocation')) {
+      var otherLocation = locatable.getProperties('latitude', 'longitude');
+      var location = this.getProperties('latitude', 'longitude');
+      var meters = geolib.getDistance(otherLocation, location);
+
+      return geolib.convertUnit('mi', meters);
+    }
+  }
 });

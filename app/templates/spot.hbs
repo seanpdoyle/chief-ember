@@ -1,9 +1,1 @@
-{{#link-to 'spot' this}}
-  <h1 data-role="name">{{name}}</h1>
-{{/link-to}}
-
-{{#if distance}}
-  <address>{{toFixed distance 2}} miles {{bearing}}</address>
-{{/if}}
-
-{{image-slider images=images}}
+{{spot-item content=model}}
