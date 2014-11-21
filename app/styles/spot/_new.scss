@@ -1,4 +1,8 @@
 .image-picker {
+  @include display(flex);
+  @include flex-flow(row wrap);
+  @include justify-content(flex-start);
+
   li {
     @include size(140);
     float: left;
@@ -11,5 +15,11 @@
 
   .active {
     border: solid 3px green;
+  }
+}
+
+.spot-form {
+  input[type=submit] {
+    width: 100%;
   }
 }

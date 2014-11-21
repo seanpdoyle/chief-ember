@@ -1,15 +1,7 @@
 .image-new {
   $height: 15em;
 
-  input[type=file] {
-    display: none;
-  }
-
   aside {
-    @include size($height);
-    display: inline-block;
-    overflow: hidden;
-
     background: {
       attachment: fixed;
       position: 50% 50%;
@@ -17,10 +9,25 @@
       size: cover;
     }
   }
+
+  input[type=file] {
+    display: none;
+  }
+
+  label {
+    border-color: #c0c0c0;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    padding: 2em;
+  }
 }
 
 .upload-status {
-  @extend .clearfix;
+  @include display(flex);
+  @include flex-direction(column);
+  @include flex-flow(row wrap);
+  @include justify-content(space-around);
 
   img {
     max-width: 100px;
@@ -28,13 +35,15 @@
   }
 
   .image-container {
-    @include size(100);
-    text-align: center;
-
-    float: left;
+    @include order(1);
   }
 
   .meta {
-    float: left;
+    @include order(2);
+    @include flex-grow(1);
+  }
+
+  .progress-bar-indication {
+    width: 90%;
   }
 }

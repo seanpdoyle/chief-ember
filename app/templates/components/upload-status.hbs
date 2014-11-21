@@ -1,0 +1,17 @@
+<section class="image-container">
+  <img {{bind-attr src=content.original}} alt="spot">
+</section>
+
+<aside class="meta">
+  <div class="messages">
+    {{#each error in content.errors.url}}
+      <span class="error">{{error.message}}</span>
+    {{/each}}
+  </div>
+
+  <div {{bind-attr class=":progress-bar-indication complete"}}>
+    <span class="meter" {{bind-attr style=content.barWidth}}>
+      <p>{{toFixed content.progress 0}}%</p>
+    </span>
+  </div>
+</aside>

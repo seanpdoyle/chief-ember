@@ -2,16 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   queryParams: {
-    latitude: { refreshModel: true },
-    longitude: { refreshModel: true }
+    latitude: { replace: true, refreshModel: true },
+    longitude: { replace: true, refreshModel: true }
   },
 
   model: function(params) {
     return this.store.findQuery('spot', params);
   },
 
-  beforeModel: function(transition, queryParams) {
-    var { latitude, longitude } = queryParams || {};
+  beforeModel: function(transition) {
+    var { latitude, longitude } = transition.queryParams || {};
 
     if (Ember.isEmpty(latitude) || Ember.isEmpty(longitude)) {
       var lastLocation;
@@ -26,8 +26,14 @@ export default Ember.Route.extend({
 
       if (!Ember.isEmpty(lastLocation.latitude) &&
           !Ember.isEmpty(lastLocation.longitude)) {
-        this.transitionTo('nearby', { queryParams: lastLocation });
+        this.transitionTo({ queryParams: lastLocation });
       }
+    }
+  },
+
+  actions: {
+    refresh: function() {
+      this.refresh();
     }
   }
 });

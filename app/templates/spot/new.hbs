@@ -1,4 +1,4 @@
-<form {{action "save" on="submit"}}>
+<form class="spot-form" {{action "save" on="submit"}}>
   <label>
     Pick a spot to share
     {{#link-to 'image.new'}}or add another{{/link-to}}
@@ -15,13 +15,11 @@
   {{/each}}
 
 
-  {{#with spot}}
-    {{input class="name" value=name type="text" placeholder="Name the spot..."}}
+  {{input class="name" value=spot.name type="text" placeholder="Name the spot..."}}
 
-    {{#each errors.name}}
-      <div class="error">{{message}}</div>
-    {{/each}}
+  {{#each error in spot.errors.name}}
+    <div class="error">{{error.message}}</div>
+  {{/each}}
 
-    <input type="submit" value="Create!">
-  {{/with}}
+  <input type="submit" value="Create!">
 </form>

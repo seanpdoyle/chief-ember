@@ -1,12 +1,10 @@
 <section class="image-new">
-  <label>
-    Upload Your Spots
-    {{image-upload uploads=uploads action="imageUploaded" accept="image/*"}}
-  </label>
+  <label for="upload">Pick a Photo</label>
+  {{image-upload id="upload" uploads=uploads action="imageUploaded" accept="image/*"}}
 
   <ul class="uploads">
-  {{#each uploads}}
-    {{render "upload-status" this}}
+  {{#each upload in uploads}}
+    {{upload-status content=upload}}
   {{/each}}
   </ul>
 </section>
