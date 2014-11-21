@@ -1,0 +1,7 @@
+.nearby-spots {
+  @extend .grid;
+
+  .spot {
+    margin: 5px;
+  }
+}

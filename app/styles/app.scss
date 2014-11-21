@@ -5,10 +5,13 @@
 
 @import 'refills/progress-bar-indication';
 
+@import 'mixins/grid';
+
 @import 'components/spot-item';
 @import 'components/page-footer';
 
 @import 'pages';
+@import 'nearby';
 
 @import 'images';
 @import 'image/new';

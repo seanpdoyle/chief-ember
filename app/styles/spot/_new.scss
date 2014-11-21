@@ -1,11 +1,8 @@
 .image-picker {
-  @include display(flex);
-  @include flex-flow(row wrap);
-  @include justify-content(flex-start);
+  @extend .grid;
 
   li {
     @include size(140);
-    float: left;
     margin: 5px;
   }
 
