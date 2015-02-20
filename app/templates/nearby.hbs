@@ -1,5 +1,5 @@
 <section class="nearby-spots">
-  {{#each spot in model}}
+  {{#each model as |spot|}}
     {{spot-item content=spot}}
   {{else}}
     <p>Locating...</p>

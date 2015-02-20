@@ -3,7 +3,7 @@
   {{image-upload id="upload" uploads=uploads action="imageUploaded" accept="image/*"}}
 
   <ul class="uploads">
-  {{#each upload in uploads}}
+  {{#each uploads as |upload|}}
     {{upload-status content=upload}}
   {{/each}}
   </ul>

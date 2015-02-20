@@ -5,19 +5,19 @@
   </label>
 
   <ul class="image-picker">
-    {{#each image in images}}
+    {{#each images as |image|}}
       {{image-item content=image selected=selected select="select"}}
     {{/each}}
   </ul>
 
-  {{#each errors.images}}
-    <div class="error">{{message}}</div>
+  {{#each model.errors.images as |error|}}
+    <div class="error">{{error.message}}</div>
   {{/each}}
 
 
-  {{input class="name" value=spot.name type="text" placeholder="Name the spot..."}}
+  {{input class="name" value=model.spot.name type="text" placeholder="Name the spot..."}}
 
-  {{#each error in spot.errors.name}}
+  {{#each model.spot.errors.name as |error|}}
     <div class="error">{{error.message}}</div>
   {{/each}}
 
