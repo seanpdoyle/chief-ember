@@ -3,6 +3,9 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
+  vendorFiles: {
+    'handlebars.js': null
+  },
   sassOptions: {
     sourceMap: false,
     includePaths: [
@@ -14,15 +17,15 @@ var app = new EmberApp({
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
-app.import('bower_components/async/lib/async.js');
-app.import('bower_components/ember-cloaking/ember-cloaking.js');
-app.import('bower_components/ember-multiselect.js/ember-multiselect.js');
-app.import('bower_components/ember-uploader/dist/ember-uploader.js');
-app.import('bower_components/jsjpegmeta/jpegmeta.js');
-app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.css');
-app.import('bower_components/owl-carousel/owl-carousel/owl.carousel.js');
-app.import('bower_components/swag/lib/swag.js');
-app.import('bower_components/geolib/dist/geolib.js');
+app.import(app.bowerDirectory + '/async/lib/async.js');
+app.import(app.bowerDirectory + '/ember-cloaking/ember-cloaking.js');
+app.import(app.bowerDirectory + '/ember-multiselect.js/ember-multiselect.js');
+app.import(app.bowerDirectory + '/ember-uploader/dist/ember-uploader.js');
+app.import(app.bowerDirectory + '/jsjpegmeta/jpegmeta.js');
+app.import(app.bowerDirectory + '/owl-carousel/owl-carousel/owl.carousel.css');
+app.import(app.bowerDirectory + '/owl-carousel/owl-carousel/owl.carousel.js');
+app.import(app.bowerDirectory + '/swag/lib/swag.js');
+app.import(app.bowerDirectory + '/geolib/dist/geolib.js');
 
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

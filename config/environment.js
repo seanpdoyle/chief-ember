@@ -34,12 +34,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.API_HOST = '//localhost:5000';
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
-    ENV.locationType = 'auto';
+    ENV.locationType = 'none';
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -49,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'api';
+    ENV.APP.API_HOST = '//api.wheelbytes.com';
   }
 
   return ENV;

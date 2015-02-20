@@ -1,3 +1,4 @@
+import { module, test } from 'ember-qunit';
 import Ember from 'ember';
 import startApp from 'chief/tests/helpers/start-app';
 import Pretender from 'pretender';
@@ -6,10 +7,10 @@ var App,
     server;
 
 module('Integration - Create Spot', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(App, 'destroy');
     if (server != null) {
       server.shutdown();
@@ -17,7 +18,7 @@ module('Integration - Create Spot', {
   }
 });
 
-test('Create a Spot from an Image', function() {
+test('Create a Spot from an Image', function(assert) {
   server = new Pretender(function() {
     this.get('/images', function(req) {
       var json = {
@@ -49,7 +50,7 @@ test('Create a Spot from an Image', function() {
   click('input[type=submit]');
 
   andThen(function() {
-    equal(find('[data-role=name]').text(), 'New Spot');
-    equal(find('[data-role=image]').attr('src'), 'image.jpg');
+    assert.equal(find('[data-role=name]').text(), 'New Spot');
+    assert.equal(find('[data-role=image]').attr('src'), 'image.jpg');
   });
 });

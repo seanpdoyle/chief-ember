@@ -1,3 +1,4 @@
+import { module, test } from 'ember-qunit';
 import Ember from 'ember';
 import startApp from 'chief/tests/helpers/start-app';
 import Pretender from 'pretender';
@@ -6,10 +7,10 @@ var App,
     server;
 
 module('Integration - Delete Image', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(App, 'destroy');
     if (server != null) {
       server.shutdown();
@@ -17,7 +18,7 @@ module('Integration - Delete Image', {
   }
 });
 
-test('Delete an image from images list', function() {
+test('Delete an image from images list', function(assert) {
   server = new Pretender(function() {
     this.get('/images', function(req) {
       var json = {
@@ -35,6 +36,6 @@ test('Delete an image from images list', function() {
   click('[data-destroy-image=1]');
 
   andThen(function() {
-    ok(!find('[data-role=image]').length);
+    assert.ok(!find('[data-role=image]').length);
   });
 });

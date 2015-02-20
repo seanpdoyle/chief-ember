@@ -1,7 +1,6 @@
 {
   "framework": "qunit",
-  "test_page": "tests/index.html",
-  "phantomjs_debug_port": 4201,
+  "test_page": "tests/index.html?hidepassed",
   "launch_in_ci": [
     "PhantomJS"
   ],

@@ -21,11 +21,5 @@ export default Ember.Route.extend({
         this.transitionTo({ queryParams: lastLocation });
       }
     }
-  },
-
-  actions: {
-    refresh: function() {
-      this.refresh();
-    }
   }
 });

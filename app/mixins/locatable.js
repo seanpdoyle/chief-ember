@@ -16,8 +16,8 @@ export default Ember.Mixin.create({
   }.property('latitude', 'longitude'),
 
   missingLocation: function() {
-    var missingLatitude = Ember.empty(this.get('latitude'));
-    var missingLongitude = Ember.empty(this.get('longitude'));
+    var missingLatitude = Ember.isEmpty(this.get('latitude'));
+    var missingLongitude = Ember.isEmpty(this.get('longitude'));
 
     return missingLatitude || missingLongitude;
   }.property('latitude', 'longitude'),
